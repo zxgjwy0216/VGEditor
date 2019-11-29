@@ -66,7 +66,7 @@ export default {
   props: [].concat(GRAPH_MOUSE_EVENTS.map(function (event) {
     var evN = GRAPH_MOUSE_REACT_EVENTS[event];
     return ["on" + evN, "onNode" + evN, "onEdge" + evN, "onGroup" + evN, "onGuide" + evN, "onAnchor" + evN];
-  }).flat(), GRAPH_OTHER_EVENTS.map(function (event) {
+  }).reduce((acc, val) => acc.concat(val), []), GRAPH_OTHER_EVENTS.map(function (event) {
     return GRAPH_OTHER_REACT_EVENTS[event];
   }), PAGE_EVENTS.map(function (event) {
     return PAGE_REACT_EVENTS[event];

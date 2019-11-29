@@ -78,7 +78,7 @@ var _default = {
   props: [].concat(_constants.GRAPH_MOUSE_EVENTS.map(function (event) {
     var evN = _constants.GRAPH_MOUSE_REACT_EVENTS[event];
     return ["on" + evN, "onNode" + evN, "onEdge" + evN, "onGroup" + evN, "onGuide" + evN, "onAnchor" + evN];
-  }).flat(), _constants.GRAPH_OTHER_EVENTS.map(function (event) {
+  }).reduce((acc, val) => acc.concat(val), []), _constants.GRAPH_OTHER_EVENTS.map(function (event) {
     return _constants.GRAPH_OTHER_REACT_EVENTS[event];
   }), _constants.PAGE_EVENTS.map(function (event) {
     return _constants.PAGE_REACT_EVENTS[event];

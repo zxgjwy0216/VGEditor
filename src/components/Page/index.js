@@ -87,7 +87,7 @@ export default {
     ...GRAPH_MOUSE_EVENTS.map(event => {
       const evN = GRAPH_MOUSE_REACT_EVENTS[event]
       return [`on${evN}`, `onNode${evN}`, `onEdge${evN}`, `onGroup${evN}`, `onGuide${evN}`, `onAnchor${evN}`]
-    }).flat(),
+    }).reduce((acc, val) => acc.concat(val), []),
     ...GRAPH_OTHER_EVENTS.map(event => GRAPH_OTHER_REACT_EVENTS[event]),
     ...PAGE_EVENTS.map(event => PAGE_REACT_EVENTS[event])
   ],
